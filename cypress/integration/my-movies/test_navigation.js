@@ -1,0 +1,86 @@
+describe('<MyMovie /> ', () => {
+
+  beforeEach(() =>{
+    cy.visit('http://localhost:3000/')
+  })
+
+  it('Visit the website <title>', () =>{  
+      cy.title().should('include', 'My Movies')
+  })
+
+  it('Write input Nome do Filme', () =>{
+    cy.get('.card')
+      .get('.card-content')
+      .get('input[type="text"]')
+      .click({ force: true })
+      .type('Batman')
+  })
+
+  it('click Button searchMovie', () =>{
+    cy.get('.card')
+      .get('.card-content')
+      .get('input[type="text"]')
+      .click({ force: true })
+      .type('Batman')
+      .get('button')
+      .click()
+  })
+
+  it('scrollView listMovies', () =>{
+    cy.get('.card')
+      .get('.card-content')
+      .get('input[type="text"]')
+      .click({ force: true })
+      .type('Star Wars')
+      .get('button')
+      .click()
+    cy.scrollTo('bottom',{duration:5000})
+    //cy.scrollTo('top')
+  })
+
+  it('website is responsive?', () =>{
+    cy.get('.card')
+      .get('.card-content')
+      .get('input[type="text"]')
+      .click({ force: true })
+      .type('Star Wars')
+      .get('button')
+      .click()
+    cy.scrollTo('bottom',{duration:5000})
+    cy.viewport(320, 480)
+    cy.viewport(2999, 2999)
+    cy.viewport('macbook-15')
+    cy.wait(200)
+    cy.viewport('macbook-13')
+    cy.wait(200)
+    cy.viewport('macbook-11')
+    cy.wait(200)
+    cy.viewport('ipad-2')
+    cy.wait(200)
+    cy.viewport('ipad-mini')
+    cy.wait(200)
+    cy.viewport('iphone-6+')
+    cy.wait(200)
+    cy.viewport('iphone-6')
+    cy.wait(200)
+    cy.viewport('iphone-5')
+    cy.wait(200)
+    cy.viewport('iphone-4')
+    cy.wait(200)
+    cy.viewport('iphone-3')
+    cy.wait(200)
+    cy.viewport('ipad-2', 'portrait')
+  })
+
+  // it('simulate clickButton +Info', () =>{
+  //   cy.get('.card')
+  //     .get('.card-content')
+  //     .get('input[type="text"]')
+  //     .click({ force: true })
+  //     .type('Batman')
+  //     .get('button')
+  //     .click()
+  //   cy.get('button').should('+ Info').click()
+  // })
+
+})
