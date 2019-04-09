@@ -72,15 +72,18 @@ describe('<MyMovie /> ', () => {
     cy.viewport('ipad-2', 'portrait')
   })
 
-  // it('simulate clickButton +Info', () =>{
-  //   cy.get('.card')
-  //     .get('.card-content')
-  //     .get('input[type="text"]')
-  //     .click({ force: true })
-  //     .type('Batman')
-  //     .get('button')
-  //     .click()
-  //   cy.get('button').should('+ Info').click()
-  // })
+  it('simulate clickButton +Info', () =>{
+    cy.get('.card')
+      .get('.card-content')
+      .get('input[type="text"]')
+      .click({ force: true })
+      .type('Batman')
+      .get('button')
+      .click()
+      .wait(2000)
+      .get('ul>li').eq(0)
+      .get('button[title="tt0372784"]').click()
+      .get('.title1').title("Batman Begins")
+  })
 
 })

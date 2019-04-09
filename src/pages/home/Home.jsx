@@ -30,15 +30,15 @@ class Home extends React.Component{
         this.props.history.push(`/movie/${imdbID}`)
     }
 
-    renderMovie = movie =>{
+    renderMovie = (movie) =>{
         return(
             <Collection className="collection">
                 <CollectionItem key={movie.imdbID} className="collection-item" >
                     <img className="img-movies" src={movie.Poster} />
                     <p className="title">{movie.Title}</p>
                     <p>{movie.Year}</p>
-                    <Button onClick={()=>this.viewMovie(movie.imdbID)} className="button-espaco btn waves-effect waves-light btn-small grey darken-3 btn-small" >
-                        + Info
+                    <Button onClick={()=>this.viewMovie(movie.imdbID)} title={movie.imdbID} className="button-espaco btn waves-effect waves-light btn-small grey darken-3 btn-small" >
+                        + Info  
                     </Button>
                 </CollectionItem>
             </Collection>

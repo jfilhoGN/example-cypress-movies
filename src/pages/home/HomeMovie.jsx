@@ -37,7 +37,7 @@ class HomeMovie extends React.Component{
                         <img src={movie.Poster} />      
                    </Col>
                </Row>
-                <Row>
+                <Row className="title1">
                     {movie.Title}
                 </Row>
                 <Row>
